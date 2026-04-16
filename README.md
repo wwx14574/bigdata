@@ -49,7 +49,7 @@ Wykres słupkowy pokazujący populację w podziale na regiony.
 pip install pandas requests matplotlib
 
 2. Uruchom program:
-python projekt.py
+python zad1.py
 
 ## Autor
 Ryszard Chojnacki 160757
