@@ -71,4 +71,4 @@ python zad2.py
 - .gitignore
 
 ## Autor
-Imię i nazwisko: ................................
+Ryszard Chojnacki 160757
