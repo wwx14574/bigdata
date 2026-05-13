@@ -50,7 +50,7 @@ pip install pandas requests matplotlib
 
 2. Uruchom program:
 python zad1.py
-
+##
 # Czyszczenie i analiza danych e-commerce
 
 ## Opis projektu
