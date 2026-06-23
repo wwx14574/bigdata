@@ -1,125 +1,106 @@
-# Analiza danych o krajach świata
+# Analiza rynku mieszkań w Warszawie
 
 ## Opis projektu
-Projekt polega na pobraniu danych o krajach świata z API REST Countries, przetworzeniu ich w Pythonie, zapisaniu do bazy SQLite oraz wykonaniu analizy danych przy użyciu SQL. Na końcu tworzony jest wykres przedstawiający populację w podziale na regiony.
+Projekt polega na przeprowadzeniu eksploracyjnej analizy danych (EDA) dotyczących ofert sprzedaży mieszkań w Warszawie.
 
-## Technologie
-- Python
-- pandas
-- requests
-- sqlite3
-- matplotlib
-
-## Zakres projektu
-
-### 1. Pobieranie danych
-Dane zostały pobrane z API:
-https://restcountries.com/
-
-Z API wyciągnięto:
-- nazwa kraju
-- stolica
-- region
-- subregion
-- populacja
-- powierzchnia
-- waluta
-
-### 2. Przetwarzanie danych
-Dane zostały przekształcone do formatu DataFrame (pandas).
-
-### 3. Baza danych
-Dane zapisano do bazy SQLite: kraje_swiata.db  
-Tabela: kraje
-
-### 4. Analiza SQL
-Wykonane zapytania:
-- suma populacji świata
-- 10 najludniejszych krajów
-- liczba krajów i średnia populacja w regionach
-- kraje większe niż Polska
-- kraj o największej gęstości zaludnienia
-
-### 5. Wizualizacja
-Wykres słupkowy pokazujący populację w podziale na regiony.
-
-## Jak uruchomić
-
-1. Zainstaluj biblioteki:
-pip install pandas requests matplotlib
-
-2. Uruchom program:
-python zad1.py
-##
-# Czyszczenie i analiza danych e-commerce
-
-## Opis projektu
-Projekt polega na wygenerowaniu brudnych danych dotyczących zamówień e-commerce, a następnie ich oczyszczeniu, przekształceniu oraz wykonaniu podstawowej analizy danych i wizualizacji.
-
-Dane zostały przygotowane w Pythonie przy użyciu biblioteki pandas.
+Dane zostały wygenerowane w Pythonie, a następnie poddane analizie statystycznej, wizualizacji, wykrywaniu wartości odstających oraz procesowi czyszczenia danych.
 
 ## Technologie
 - Python
 - pandas
 - numpy
 - matplotlib
+- seaborn
 
 ## Zakres projektu
 
-### 1. Generowanie danych
-Program generuje plik zamowienia_messy.csv.
-
-### 2. Eksploracja danych
+### 1. Wczytanie i eksploracja danych
 Wykonano:
-- sprawdzenie rozmiaru danych
-- podgląd pierwszych rekordów
+- wczytanie pliku mieszkania_warszawa.csv
+- analizę rozmiaru zbioru danych
 - analizę typów danych
-- analizę braków danych
-- analizę kategorii i wartości
+- statystyki opisowe
+- sprawdzenie brakujących wartości
 
-### 3. Czyszczenie danych
+### 2. Statystyki opisowe
+Dla kolumny cena_pln obliczono:
+- średnią
+- medianę
+- odchylenie standardowe
+- współczynnik skośności (skewness)
+- kurtozę (kurtosis)
+
+Dla kolumny metraz_m2 obliczono:
+- pierwszy kwartyl (Q1)
+- trzeci kwartyl (Q3)
+- rozstęp międzykwartylowy (IQR)
+
+Dodatkowo wykonano analizę:
+- liczby unikalnych dzielnic
+- liczby ofert przypadających na każdą dzielnicę
+
+### 3. Analiza pojedynczych zmiennych
+Utworzono:
+- histogram i KDE ceny mieszkań
+- histogram i KDE metrażu mieszkań
+- boxplot ceny mieszkań
+- wykres liczby ofert według dzielnic
+
+### 4. Analiza zależności
+Wykonano:
+- macierz korelacji zmiennych numerycznych
+- wykres zależności metrażu od ceny
+- analizę ceny za m² w podziale na dzielnice
+
+Dodatkowo określono dzielnicę o najwyższej medianie ceny za metr kwadratowy.
+
+### 5. Detekcja outlierów
+W projekcie wykorzystano:
+- metodę IQR
+- metodę Z-score
+- metodę Modified Z-score
+
+Dodatkowo:
+- wykryto outliery metrażu metodą IQR
+- znaleziono błędne lata budowy
+
+### 6. Czyszczenie danych
 W projekcie wykonano:
-- usunięcie duplikatów
-- standaryzację tekstu
-- konwersję dat
-- konwersję cen do typu float
-- obsługę brakujących wartości
-- usunięcie błędnych rekordów
+- usunięcie nielogicznych lat budowy
+- winsoryzację cen mieszkań (1 i 99 percentyl)
+- transformację logarytmiczną ceny
 
-### 4. Transformacje
-Dodano nowe kolumny:
-- wartosc_zamowienia
-- rok
-- miesiac
-- nazwa_dnia
-- email_poprawny
+### 7. Wizualizacja
+Utworzono wykresy przedstawiające:
+- rozkład cen mieszkań
+- rozkład metrażu mieszkań
+- liczbę ofert według dzielnic
+- zależność metrażu od ceny
+- korelacje pomiędzy zmiennymi
+- ceny za m² w podziale na dzielnice
+- wpływ transformacji logarytmicznej na rozkład cen
 
-### 5. Analiza danych
-Wykonano analizę:
-- łącznej wartości zamówień w miesiącach
-- top 5 klientów
-- średniej wartości zamówienia według kategorii
-
-### 6. Wizualizacja
-Utworzono wykres słupkowy przedstawiający łączną wartość zamówień w każdym miesiącu.
-
-### 7. Zapis danych
-Oczyszczone dane zapisano do pliku zamowienia_clean.csv.
+### 8. Wnioski
+Na podstawie przeprowadzonej analizy sformułowano wnioski dotyczące:
+- rozkładu cen mieszkań w Warszawie
+- wpływu metrażu na cenę mieszkania
+- różnic cenowych pomiędzy dzielnicami
+- występowania wartości odstających
+- jakości danych i potrzeby ich czyszczenia
 
 ## Jak uruchomić
 
 1. Zainstaluj wymagane biblioteki:
-```
-pip install pandas numpy matplotlib
-```
+
+pip install pandas numpy matplotlib seaborn
+
 2. Uruchom program:
-```
-python zad2.py
-```
+
+python analiza.py
+
 ## Pliki projektu
-- zad2.py
-- zamowienia_messy.csv
-- zamowienia_clean.csv
+- analiza.py
+- mieszkania_warszawa.csv
 - README.md
 - .gitignore
 
