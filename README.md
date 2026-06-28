@@ -1,108 +1,75 @@
-# Analiza rynku mieszkań w Warszawie
+# Analiza rynku koncertów muzycznych w Polsce
 
 ## Opis projektu
-Projekt polega na przeprowadzeniu eksploracyjnej analizy danych (EDA) dotyczących ofert sprzedaży mieszkań w Warszawie.
 
-Dane zostały wygenerowane w Pythonie, a następnie poddane analizie statystycznej, wizualizacji, wykrywaniu wartości odstających oraz procesowi czyszczenia danych.
+Projekt polega na analizie danych dotyczących rynku koncertów muzycznych w Polsce z wykorzystaniem języka Python oraz biblioteki Plotly do tworzenia interaktywnych wizualizacji danych.
 
-## Technologie
-- Python
-- pandas
-- numpy
-- matplotlib
-- seaborn
+Celem projektu było poznanie podstaw wizualizacji prezentacyjnej oraz przygotowanie zestawu wykresów umożliwiających analizę rynku koncertowego w Polsce.
+
+## Wykorzystane technologie
+
+* Python
+* pandas
+* numpy
+* plotly
 
 ## Zakres projektu
 
 ### 1. Wczytanie i eksploracja danych
-Wykonano:
-- wczytanie pliku mieszkania_warszawa.csv
-- analizę rozmiaru zbioru danych
-- analizę typów danych
-- statystyki opisowe
-- sprawdzenie brakujących wartości
 
-### 2. Statystyki opisowe
-Dla kolumny cena_pln obliczono:
-- średnią
-- medianę
-- odchylenie standardowe
-- współczynnik skośności (skewness)
-- kurtozę (kurtosis)
+Dane zostały wczytane z pliku `koncerty_polska.csv`. Następnie przeprowadzono podstawową analizę zbioru danych:
 
-Dla kolumny metraz_m2 obliczono:
-- pierwszy kwartyl (Q1)
-- trzeci kwartyl (Q3)
-- rozstęp międzykwartylowy (IQR)
+* liczba rekordów,
+* liczba kolumn,
+* typy danych,
+* liczba unikalnych miast,
+* liczba gatunków muzycznych.
 
-Dodatkowo wykonano analizę:
-- liczby unikalnych dzielnic
-- liczby ofert przypadających na każdą dzielnicę
+### 2. Analiza przychodów według miasta
 
-### 3. Analiza pojedynczych zmiennych
-Utworzono:
-- histogram i KDE ceny mieszkań
-- histogram i KDE metrażu mieszkań
-- boxplot ceny mieszkań
-- wykres liczby ofert według dzielnic
+Przygotowano interaktywny wykres słupkowy przedstawiający łączny przychód wygenerowany przez koncerty w poszczególnych miastach.
 
-### 4. Analiza zależności
-Wykonano:
-- macierz korelacji zmiennych numerycznych
-- wykres zależności metrażu od ceny
-- analizę ceny za m² w podziale na dzielnice
+### 3. Analiza liczby koncertów w czasie
 
-Dodatkowo określono dzielnicę o najwyższej medianie ceny za metr kwadratowy.
+Przedstawiono liczbę koncertów w kolejnych miesiącach oraz przeanalizowano wpływ typu obiektu na liczbę organizowanych wydarzeń.
 
-### 5. Detekcja outlierów
-W projekcie wykorzystano:
-- metodę IQR
-- metodę Z-score
-- metodę Modified Z-score
+### 4. Analiza cen biletów i przychodów
 
-Dodatkowo:
-- wykryto outliery metrażu metodą IQR
-- znaleziono błędne lata budowy
+Wykorzystano histogram do przedstawienia rozkładu cen biletów oraz wykres pudełkowy do porównania przychodów dla różnych typów obiektów.
 
-### 6. Czyszczenie danych
-W projekcie wykonano:
-- usunięcie nielogicznych lat budowy
-- winsoryzację cen mieszkań (1 i 99 percentyl)
-- transformację logarytmiczną ceny
+### 5. Analiza zależności pomiędzy ceną biletu a wypełnieniem obiektu
 
-### 7. Wizualizacja
-Utworzono wykresy przedstawiające:
-- rozkład cen mieszkań
-- rozkład metrażu mieszkań
-- liczbę ofert według dzielnic
-- zależność metrażu od ceny
-- korelacje pomiędzy zmiennymi
-- ceny za m² w podziale na dzielnice
-- wpływ transformacji logarytmicznej na rozkład cen
+Obliczono poziom wypełnienia obiektu oraz zbadano zależność pomiędzy ceną biletu a frekwencją na koncertach.
 
-### 8. Wnioski
-Na podstawie przeprowadzonej analizy sformułowano wnioski dotyczące:
-- rozkładu cen mieszkań w Warszawie
-- wpływu metrażu na cenę mieszkania
-- różnic cenowych pomiędzy dzielnicami
-- występowania wartości odstających
-- jakości danych i potrzeby ich czyszczenia
+### 6. Wizualizacja danych na mapie
 
-## Jak uruchomić
+Przygotowano interaktywną mapę Polski przedstawiającą liczbę koncertów oraz średnią cenę biletów w poszczególnych miastach.
 
-1. Zainstaluj wymagane biblioteki:
+### 7. Dashboard podsumowujący
 
-pip install pandas numpy matplotlib seaborn
+Stworzono zestaw subplotów prezentujących najważniejsze informacje dotyczące rynku koncertowego w Polsce.
 
-2. Uruchom program:
+## Wnioski
 
-python analiza.py
+* Najwięcej koncertów organizowanych jest w największych miastach Polski.
+* Najwyższe przychody generują koncerty stadionowe oraz festiwale.
+* Najwyższe średnie ceny biletów występują na dużych wydarzeniach organizowanych na stadionach.
+* Widoczna jest sezonowość rynku koncertowego, szczególnie w okresie wiosenno-letnim.
 
-## Pliki projektu
-- analiza.py
-- mieszkania_warszawa.csv
-- README.md
-- .gitignore
+## Uruchomienie projektu
+
+Instalacja wymaganych bibliotek:
+
+```bash
+pip install pandas numpy plotly
+```
+
+Uruchomienie programu:
+
+```bash
+python zadanie.py
+```
 
 ## Autor
+
 Ryszard Chojnacki 160757
