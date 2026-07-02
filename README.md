@@ -85,22 +85,6 @@ streamlit run app.py
 http://localhost:8501
 ```
 
-## Deployment
-
-Aplikację można wdrożyć za pomocą Streamlit Community Cloud:
-
-1. Utwórz publiczne repozytorium na GitHubie.
-2. Wrzuć do niego pliki: `app.py`, `requirements.txt`, `README.md` oraz `.gitignore`.
-3. Wejdź na https://share.streamlit.io.
-4. Wybierz repozytorium, branch `main` i plik startowy `app.py`.
-5. Kliknij Deploy.
-
-Po wdrożeniu w tym miejscu należy wkleić link do działającej aplikacji:
-
-```text
-https://twoja-aplikacja.streamlit.app
-```
-
 ## Autor
 
 Ryszard Chojnacki 160757
