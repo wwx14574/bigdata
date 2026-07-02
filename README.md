@@ -85,6 +85,10 @@ streamlit run app.py
 http://localhost:8501
 ```
 
+## Deployment
+...
+https://projekt-qij83sgha39bauvprsfpmf.streamlit.app/
+
 ## Autor
 
 Ryszard Chojnacki 160757
