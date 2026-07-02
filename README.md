@@ -86,9 +86,9 @@ http://localhost:8501
 ```
 
 ## Deployment
-...
+```text
 https://projekt-qij83sgha39bauvprsfpmf.streamlit.app/
-
+```
 ## Autor
 
 Ryszard Chojnacki 160757
