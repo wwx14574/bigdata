@@ -1,73 +1,104 @@
-# Analiza rynku koncertów muzycznych w Polsce
+# Dashboard jakości powietrza w polskich miastach
 
 ## Opis projektu
 
-Projekt polega na analizie danych dotyczących rynku koncertów muzycznych w Polsce z wykorzystaniem języka Python oraz biblioteki Plotly do tworzenia interaktywnych wizualizacji danych.
+Projekt jest aplikacją analityczną przygotowaną w Streamlit. Dashboard pobiera rzeczywiste dane godzinowe z Open-Meteo Air Quality API, czyści je, analizuje i prezentuje w formie interaktywnych wykresów.
 
-Celem projektu było poznanie podstaw wizualizacji prezentacyjnej oraz przygotowanie zestawu wykresów umożliwiających analizę rynku koncertowego w Polsce.
+Aplikacja pozwala porównywać jakość powietrza w wybranych polskich miastach, sprawdzać zmiany w czasie, analizować rozkład wartości oraz zależności między zanieczyszczeniami.
 
-## Wykorzystane technologie
+## Źródło danych
 
-* Python
-* pandas
-* numpy
-* plotly
+Dane pochodzą z publicznego API:
 
-## Zakres projektu
+https://air-quality-api.open-meteo.com/v1/air-quality
 
-### 1. Wczytanie i eksploracja danych
+W projekcie wykorzystano dane dla wybranych polskich miast, m.in. Warszawy, Krakowa, Wrocławia, Poznania, Gdańska, Łodzi i Katowic.
 
-Dane zostały wczytane z pliku `koncerty_polska.csv`. Następnie przeprowadzono podstawową analizę zbioru danych:
+Pobierane wskaźniki:
 
-* liczba rekordów,
-* liczba kolumn,
-* typy danych,
-* liczba unikalnych miast,
-* liczba gatunków muzycznych.
+- PM10
+- PM2.5
+- NO2
+- O3
+- SO2
+- CO
 
-### 2. Analiza przychodów według miasta
+## Funkcje aplikacji
 
-Przygotowano interaktywny wykres słupkowy przedstawiający łączny przychód wygenerowany przez koncerty w poszczególnych miastach.
+Aplikacja zawiera:
 
-### 3. Analiza liczby koncertów w czasie
+- pobieranie danych z prawdziwego źródła przez API,
+- czyszczenie i przygotowanie danych,
+- obsługę braków i błędnych wartości,
+- kolumny pochodne, np. data, godzina, udział PM2.5 w PM10,
+- KPI z najważniejszymi informacjami,
+- interaktywne filtry w panelu bocznym,
+- minimum 5 typów wykresów:
+  - mapa,
+  - wykres liniowy,
+  - wykres słupkowy,
+  - scatter plot,
+  - histogram,
+  - boxplot,
+  - heatmapa korelacji.
 
-Przedstawiono liczbę koncertów w kolejnych miesiącach oraz przeanalizowano wpływ typu obiektu na liczbę organizowanych wydarzeń.
+## Filtry
 
-### 4. Analiza cen biletów i przychodów
+W aplikacji dostępne są filtry:
 
-Wykorzystano histogram do przedstawienia rozkładu cen biletów oraz wykres pudełkowy do porównania przychodów dla różnych typów obiektów.
+- zakres dat,
+- województwo,
+- miasto,
+- rodzaj zanieczyszczenia,
+- minimalna wartość wskaźnika.
 
-### 5. Analiza zależności pomiędzy ceną biletu a wypełnieniem obiektu
+Po zmianie filtrów aplikacja automatycznie przelicza wykresy, KPI i tabele.
 
-Obliczono poziom wypełnienia obiektu oraz zbadano zależność pomiędzy ceną biletu a frekwencją na koncertach.
+## Struktura projektu
 
-### 6. Wizualizacja danych na mapie
-
-Przygotowano interaktywną mapę Polski przedstawiającą liczbę koncertów oraz średnią cenę biletów w poszczególnych miastach.
-
-### 7. Dashboard podsumowujący
-
-Stworzono zestaw subplotów prezentujących najważniejsze informacje dotyczące rynku koncertowego w Polsce.
-
-## Wnioski
-
-* Najwięcej koncertów organizowanych jest w największych miastach Polski.
-* Najwyższe przychody generują koncerty stadionowe oraz festiwale.
-* Najwyższe średnie ceny biletów występują na dużych wydarzeniach organizowanych na stadionach.
-* Widoczna jest sezonowość rynku koncertowego, szczególnie w okresie wiosenno-letnim.
-
-## Uruchomienie projektu
-
-Instalacja wymaganych bibliotek:
-
-```bash
-pip install pandas numpy plotly
+```text
+.
+├── app.py
+├── requirements.txt
+├── README.md
+└── .gitignore
 ```
 
-Uruchomienie programu:
+## Uruchomienie lokalne
+
+1. Sklonuj repozytorium lub pobierz pliki projektu.
+2. Zainstaluj wymagane pakiety:
 
 ```bash
-python zadanie.py
+pip install -r requirements.txt
+```
+
+3. Uruchom aplikację:
+
+```bash
+streamlit run app.py
+```
+
+4. Otwórz aplikację w przeglądarce pod adresem wyświetlonym w terminalu, zwykle:
+
+```text
+http://localhost:8501
+```
+
+## Deployment
+
+Aplikację można wdrożyć za pomocą Streamlit Community Cloud:
+
+1. Utwórz publiczne repozytorium na GitHubie.
+2. Wrzuć do niego pliki: `app.py`, `requirements.txt`, `README.md` oraz `.gitignore`.
+3. Wejdź na https://share.streamlit.io.
+4. Wybierz repozytorium, branch `main` i plik startowy `app.py`.
+5. Kliknij Deploy.
+
+Po wdrożeniu w tym miejscu należy wkleić link do działającej aplikacji:
+
+```text
+https://twoja-aplikacja.streamlit.app
 ```
 
 ## Autor
